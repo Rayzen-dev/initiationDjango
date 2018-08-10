@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+
+@import "reset";
+
+@import "function";
+
+@import "grid";
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background: #f3f9f9;
+  line-height: 1.25;
+}
+
+@import "typo";
+
+header {
+  background: #4183c4 url("img/header_background.jpeg") no-repeat center center;
+  text-align: center;
+  position: relative;
+  height: 250px;
+  .jumbotron {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fffff9;
+  }
+}
+
+.app {
+  padding: 30px 1rem;
+  background: #fffff9;
+}
+
+@import 'nav';
+
+.card {
+  background: #d6ecfa;
+  border: 1px solid #6AAFE6;
+  color: #6AAFE6;
+  padding: 1rem;
+  @include radius(4px)
+}

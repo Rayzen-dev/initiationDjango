@@ -1,0 +1,45 @@
+.container {
+  max-width: $md_width * 1px;
+  margin: 0 auto;
+  &--fluid {
+    margin: 0;
+    max-width: 100%;
+  }
+}
+
+.row {
+  @include flex(wrap, row);
+  width: 100%;
+  padding: .5rem 0 1rem;
+  &.around-xs {
+    justify-content: space-around;
+  }
+  &.between-xs {
+    justify-content: space-between;
+  }
+  &.center-xs {
+    justify-content: center;
+  }
+  &.v-center {
+    align-items: center;
+  }
+}
+
+@for $i from 1 through $nb_col {
+  .col-#{$i} {
+    flex-basis: (100 / ($nb_col / $i)) * 1%;
+  }
+}
+
+@each $modifier, $breakpoint in $map-grid-props {
+  @include create-col-class($modifier, $nb_col, $breakpoint);
+}
+
+[class^='col-'] {
+  margin-bottom: 1.5em;
+  padding: 0 15px;
+  text-align: justify;
+  &.no-p {
+    padding: 0;
+  }
+}

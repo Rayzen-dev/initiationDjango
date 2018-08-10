@@ -1,0 +1,75 @@
+$xs_width: 320;
+$sm_width: 500;
+$md_width: 768;
+$lg_width: 1024;
+$nb_col: 12;
+$navigator_prefixes: -webkit- -moz- -ms- -o-;
+$map-grid-props: ('': 0,'-xs': $xs_width, '-sm': $sm_width, '-md': $md_width, '-lg': $lg_width);
+
+//  Colors
+
+@mixin flex($wrap, $direction) {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+  -ms-flex-direction: $direction;
+  flex-direction: $direction;
+}
+
+@mixin animation($t, $prop:'all') {
+  -webkit-transition: unquote($prop) $t;
+  -moz-transition:    unquote($prop) $t;
+  -ms-transition:     unquote($prop) $t;
+  -o-transition:      unquote($prop) $t;
+  transition:         unquote($prop) $t;
+}
+
+@mixin box-shadow($x, $y, $blur, $color, $inset:'') {
+  -webkit-box-shadow:	unquote($inset) $x $y $blur $color;
+  -moz-box-shadow:	    unquote($inset) $x $y $blur $color;
+  box-shadow:			unquote($inset) $x $y $blur $color;
+}
+
+@mixin animate($element, $time, $speed:'linear') {
+  -webkit-animation: $element $time $speed;
+  -o-animation: $element $time $speed;
+  animation: $element $time $speed;
+}
+
+@mixin radius($border) {
+  -webkit-border-radius: $border;
+  -moz-border-radius: $border;
+  border-radius: $border;
+}
+
+//  ------------------- Mixins grid
+@mixin create-mq($breakpoint) {
+  @if($breakpoint == 0) {
+    @content
+  } @else {
+    @media screen and (min-width: $breakpoint * 1px) {
+      @content
+    }
+  }
+}
+
+@mixin create-col-class($modifier, $grid_cols, $breakpoint) {
+  @include create-mq($breakpoint) {
+    .col#{$modifier}-offset-0 {
+      margin-left: 0;
+    }
+    @for $i from 1 through $grid_cols {
+      .col#{$modifier}-#{$i} {
+        flex-basis: (100 / ($grid_cols / $i)) * 1%;
+      }
+
+      .col#{$modifier}-offset-#{$i} {
+        margin-left: (100 / ($grid_cols / $i)) * 1%;
+      }
+    }
+  }
+}
