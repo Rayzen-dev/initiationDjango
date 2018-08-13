@@ -7,10 +7,13 @@
 
 @import "grid";
 
+p {margin:5px auto;}
+
 body {
   font-family: 'IBM Plex Sans', sans-serif;
-  background: #f3f9f9;
+  background: #d9e1e8;
   line-height: 1.25;
+  color: #454552;
 }
 
 @import "typo";
@@ -30,16 +33,24 @@ header {
 }
 
 .app {
-  padding: 30px 1rem;
+  padding: 30px 0;
+}
+
+.bloc {
   background: #fffff9;
+  padding: 1rem;
+  margin-bottom: 20px;
+  @include radius(5px);
+  border: 1px solid #D9D4CF;
+  @include animation(.2s);
+  &:hover {
+    border-color: #8c9184;
+    @include box-shadow(0, 5px, 5px, #a7a7a2);
+  }
 }
 
 @import 'nav';
 
 .card {
-  background: #d6ecfa;
-  border: 1px solid #6AAFE6;
-  color: #6AAFE6;
   padding: 1rem;
-  @include radius(4px)
 }

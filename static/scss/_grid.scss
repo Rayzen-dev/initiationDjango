@@ -10,7 +10,7 @@
 .row {
   @include flex(wrap, row);
   width: 100%;
-  padding: .5rem 0 1rem;
+  padding: .5rem 0;
   &.around-xs {
     justify-content: space-around;
   }
@@ -36,7 +36,7 @@
 }
 
 [class^='col-'] {
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
   padding: 0 15px;
   text-align: justify;
   &.no-p {
