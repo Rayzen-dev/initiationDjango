@@ -4,5 +4,5 @@ from . import views
 
 app_name = 'api'
 urlpatterns = [
-    path('test',  views.IndexView.as_view(), name='indexTest')
+    path('test/<int:id_licence>',  views.test, name='indexTest')
 ]
