@@ -3,27 +3,16 @@
 {% block content %}
 <div class="bloc">
     <h2>Nos formules</h2>
-    <div class="row center-xs">
-        <div class="col-12">
-            <form id="chooseLicence">
-                {% csrf_token %}
-                <select>
-                    <option value="" selected>-- Choisir votre formule --</option>
-                    <option value="1">Selection</option>
-                    <option value="2">loul</option>
-                    <option value="3">lel</option>
-                </select>
-            </form>
-        </div>
-        <div class="col-6 col-xs-12 col-sm-6">
-            <div class="card">
-                <p>Formule n°1</p>
-                <ul class="text-center">
-                    <li>Lol</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <form id="chooseLicence">
+        {% csrf_token %}
+        <select>
+            <option value="" selected>-- Choisir votre formule --</option>
+            <option value="1">Selection</option>
+            <option value="2">loul</option>
+            <option value="3">lel</option>
+        </select>
+    </form>
+    <div class="row center-xs" id="displayLicence"></div>
 </div>
 
 <div class="bloc">
