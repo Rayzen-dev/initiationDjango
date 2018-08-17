@@ -3,13 +3,14 @@ nav {
   bottom: 0;
   font-family: 'Heebo', sans-serif;
   line-height: 1;
-  background: red;
+  background: #58c9b9;
   width: 100%;
   ul {
     @include flex(no-wrap, row);
     li {
       text-transform: uppercase;
       a {
+        color: darken(#58c9b9, 40%);
         display: block;
         padding: .75rem 1rem;
         text-decoration: none;

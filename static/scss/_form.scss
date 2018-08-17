@@ -1,0 +1,22 @@
+form.form {
+  .form-group {
+    margin-bottom: 10px;
+    label {
+      display: block;
+      margin-bottom: 2px;
+    }
+  }
+  .form-control {
+    width: 100%;
+    border: 1px solid #D9D4CF;
+    font-size: 100%;
+    font-family: 'Raleway', sans-serif;
+    padding: 7px;
+    @include radius(4px);
+    @include animation(.2s);
+    &:focus {
+      border-color: #58C9B9;
+      @include box-shadow(0, -1px, 4px, #9DC8C8, inset);
+    }
+  }
+}

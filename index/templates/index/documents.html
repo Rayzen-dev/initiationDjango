@@ -1,0 +1,54 @@
+{% extends '../layouts/base.html' %}
+
+{% block title %}
+Détails administratifs
+{% endblock %}
+
+{% block content %}
+<div class="bloc" id="documents">
+    <h2>Documents administratif</h2>
+    <p>Pour toutes nouvelles inscriptions aux forfaits proposés, les documents ci-dessous sont nécessaires:</p>
+    <ul class="list">
+        <li>1 photocopie de la carte d'identité ou du passeport</li>
+        <li>1 photocopie du permis de conduire pour toutes catégories obtenues</li>
+        <li>1 photocopie de l'attestation de recensement (16 et 18 ans) ou de l'attestation de la journée d'appel (18 ans)</li>
+        <li>1 Photocopie d'un justificatif de domicile de moins de 3 mois</li>
+        <li>1 Attestation d'hébergement + 1 Photocopie de la carte d'identité de l'hébergeant</li>
+        <li>1 Photocopie de l'ASSR2</li>
+        <li>3 Photos d'identités avec code de numérisation (Norme permis*)</li>
+        <li>1 Photocopie de la pièce d'identité des responsables légaux (si l'élève a moins de 18 ans)</li>
+        <li>1 Enveloppe A4 vierge et pré-timbrée</li>
+        <li>1 Enveloppe A5 vierge et pré-timbrée</li>
+        <li>4 Timbres</li>
+    </ul>
+    <p>Si nationalité étrangères</p>
+    <ul class="list">
+        <li>1 Photocopie du titre de séjour valide à la bonne adresse (Pas de récépissé)</li>
+        <li>1 Photocopie du permis de conduire pour toute catégorie obtenue + Traduction assermentée</li>
+        <li>1 Preuve de résidence d'une durée de 6 mois minimum (Si U.E)</li>
+    </ul>
+</div>
+
+<div class="bloc" id="hors_forfait">
+    <h2>Suppléments hors forfait</h2>
+    <p>Le montant de la gestion admistrative s'élève à <b>100€</b> pour tout forfait.</p>
+    <div class="row around-xs">
+        <div class="col-6">
+            <p>Code de la route</p>
+            <ul class="list">
+                <li><b>270€</b> Salle: 6 mois supplémentaires</li>
+                <li><b>190€</b> Salle: 3 mois supplémentaires</li>
+                <li><b>50€</b> Internet: 6 mois supplémentaires</li>
+            </ul>
+        </div>
+        <div class="col-6">
+            <p>Prestations unitaires</p>
+            <ul class="list">
+                <li><b>20€</b> Livret de code</li>
+                <li><b>15€</b> DVD de tests de code</li>
+                <li><b>10€</b> Cahier d'exercices</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

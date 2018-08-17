@@ -1,0 +1,19 @@
+.btn {
+  border: 0;
+  padding: .5rem;
+  background: #dddfe6;
+  @include animation(.2s);
+  @include radius(2px);
+  &:hover {
+    cursor: pointer;
+    @include box-shadow(0, -2px, 0, #58C9B9, inset);
+  }
+}
+
+.box-danger {
+  color: #E53A40;
+  border: 1px solid #E53A40;
+  padding: .75rem;
+  background: lighten(#E53A40, 35%);
+  margin: 15px 0;
+}

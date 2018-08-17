@@ -1,0 +1,31 @@
+{% extends '../layouts/base.html' %}
+
+{% block content %}
+<div class="bloc">
+    {{ user }}
+    <h2>Connexion</h2>
+    {% if errorMessage %}
+        <div class="box-danger">
+            {{ errorMessage }}
+        </div>
+    {% endif%}
+    <div class="row center-xs">
+        <div class="col-10 col-sm-6">
+            <form method="post" action="{% url 'index:login' %}" class="form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Nom d'utilisateur:</label>
+                    <input type="text" id="username" name="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe:</label>
+                    <input type="password" id="password" name="password" class="form-control">
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Connexion" class="btn">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

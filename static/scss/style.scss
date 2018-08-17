@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Heebo');
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 @import "reset";
 
@@ -51,6 +52,49 @@ header {
 
 @import 'nav';
 
+@import "form";
+
+@import "helper";
+
 .card {
-  padding: 1rem;
+  padding: 1rem 0 0;
+  text-align: center;
+  background: #f4f5f9;
+  border: 1px solid #c9d6de;
+  -webkit-border-bottom-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  -webkit-border-right-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+  margin: 5px 0;
+  @include box-shadow(0, 4px, 7px, #e3dede);
+  li {
+    border-bottom: 1px solid #dddfe6;
+    padding: .5rem 2.5rem;
+    @include animation(.2s);
+    &:hover:not(.card__price) {
+      background: #f4f4f4;
+      color: #3e4149;
+    }
+    &:last-child, &:first-child {
+      border: none;
+    }
+  }
+  &__price {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #58C9B9;
+  }
 }
+
+ul.list {
+  margin: 5px 0;
+  padding-left: 40px;
+  display: inline-block;
+  li {
+    list-style-type: circle;
+    margin: 7px 0;
+  }
+}
+
+@import "responsive";

@@ -1,25 +1,45 @@
 {% extends '../layouts/base.html' %}
 
+{% block title %}
+Test
+{% endblock %}
+
 {% block content %}
 <div class="bloc">
     <h2>Nos formules</h2>
     <form id="chooseLicence">
         {% csrf_token %}
         <select>
-            <option value="" selected>-- Choisir votre formule --</option>
-            <option value="1">Selection</option>
-            <option value="2">loul</option>
-            <option value="3">lel</option>
+            <option value="" selected>-- Choisir votre forfait --</option>
+            {% for licence in licencesList %}
+            <option value="{{ licence.id }}">{{ licence.name }}</option>
+            {% endfor %}
         </select>
     </form>
     <div class="row center-xs" id="displayLicence"></div>
 </div>
 
 <div class="bloc">
+    <h2>Prochaines dates code acceléré</h2>
+    <p>Pour assister aux session code acceléré, merci de prévenir <b>48 heures</b> à l'avance.</p>
+    <ul class="row around-xs">
+        <li>31/02/2020</li>
+        <li>31/02/2020</li>
+        <li>31/02/2020</li>
+    </ul>
+</div>
+
+<div class="bloc">
     <h2>Nous contacter</h2>
-    <p>Prendre contact avec l'agence</p>
-    <div class="row">
-        <div class="col-12">
+    <p>Prendre contact avec l'agence:</p>
+    <div class="row center-xs">
+        <div class="col-8 text-center">
+            <ul>
+                <li>Permis malin</li>
+                <li>1, Chemin des Nuages</li>
+                <li>Pôle Nord</li>
+                <li><i class="fa fa-phone" aria-hidden="true"></i>&ensp;06.66.88.13.42</li>
+            </ul>
         </div>
     </div>
 </div>

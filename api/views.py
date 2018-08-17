@@ -16,7 +16,7 @@ def test(request, id_licence = 0):
     compositions = list(Composition.objects.all().filter(licence=id_licence))
 
     for comp in compositions:
-        datas[comp.id] = {'pk': comp.id, 'name': comp.name, 'data': []}
+        datas[comp.id] = {'pk': comp.id, 'name': comp.name, 'price':str(comp.price), 'data': []}
 
     for comp in compositions:
         for item in comp.itemcomposition_set.all():
