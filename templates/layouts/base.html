@@ -25,8 +25,9 @@
             <p>Le permis, à prix malin!</p>
         </div>
         <nav>
+            <a href="javascript:void(0);" class="toggleNav" id="toggleNav">lol</a>
             <ul>
-                <li><a href="{% url 'index:home' %}">Home</a></li>
+                <li><a href="{% url 'index:home' %}">Accueil</a></li>
                 <li><a href="{% url 'index:documents' %}">Détails administratifs</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="#">Profil</a></li>

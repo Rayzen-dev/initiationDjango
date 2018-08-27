@@ -12,8 +12,13 @@ class ApiRequestMiddleware(object):
         self.get_response = get_response
 
     def __call__(self, request):
-        url = request.path_info.lstrip('/').split('/')
-        if request.method.upper() == 'GET' and url[0].lower() == 'api':
+        url = request.path_info.lstrip('/')
+        if url is None:
+            url = ['/']
+        else:
+            url = request.path_info.lstrip('/').split('/')
+
+        if request.content_type.lower() != 'application/json' and url[0].lower() == 'api':
             raise Http404
 
         response = self.get_response(request)

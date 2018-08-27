@@ -3,6 +3,9 @@ from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 from django.views import generic
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
+from django.conf import settings
+from django.shortcuts import redirect
+from urllib.parse import urlparse, parse_qs
 
 from licence.models import Licence
 
@@ -23,6 +26,12 @@ class DocumentsView(generic.ListView):
 def LoginView(request):
     errorMessage = None
     user = None
+
+    if request.GET.get('next') is not None:
+        next = '?next=' + request.GET.get('next')
+    else:
+        next = ''
+
     if request.POST:
         if 'username' in request.POST and 'password' in request.POST:
             username = request.POST['username']
@@ -31,7 +40,7 @@ def LoginView(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return HttpResponseRedirect(reverse('index:home'))
+                return redirect('/' if request.GET.get('next') is None else request.GET.get('next'))
             else:
                 errorMessage = 'Combinaison utilisateur/mot de de passe incorrect.'
         else:
@@ -40,7 +49,8 @@ def LoginView(request):
     greetings = {
         'testPost': request.POST,
         'errorMessage': errorMessage,
-        'user': user
+        'user': user,
+        'next': next
     }
     return render(request, 'index/login.html', greetings)
 

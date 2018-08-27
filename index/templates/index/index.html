@@ -7,9 +7,9 @@ Test
 {% block content %}
 <div class="bloc">
     <h2>Nos formules</h2>
-    <form id="chooseLicence">
+    <form id="chooseLicence" class="form">
         {% csrf_token %}
-        <select>
+        <select class="form-control">
             <option value="" selected>-- Choisir votre forfait --</option>
             {% for licence in licencesList %}
             <option value="{{ licence.id }}">{{ licence.name }}</option>

@@ -17,7 +17,7 @@ class Licence(models.Model):
 class Composition(models.Model):
     licence = models.ForeignKey(Licence, on_delete=models.CASCADE, verbose_name='Permis associé')
     name = models.CharField(max_length=200, verbose_name='Nom de la formule')
-    price = models.DecimalField(max_digits=9, decimal_places=2, verbose_name="Prix")
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=0, verbose_name="Prix")
 
     class Meta:
         verbose_name = "Formule"

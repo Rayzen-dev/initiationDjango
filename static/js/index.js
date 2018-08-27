@@ -7,12 +7,18 @@ $(function () {
     if ($('form#chooseLicence select').val().length > 0)
         getLicences($('form#chooseLicence select').val(), $(this).prev().val());
 
+
+    //  Nav button
+    $('#toggleNav').on('click', function() {
+        $(this).next().toggleClass('active');
+    });
+
     //  -----------------------------
     function getLicences(id, token) {
         $.ajax({
             url: "/api/test/"+id,
-            type: "POST",
-            data: {'csrfmiddlewaretoken': token},
+            type: "GET",
+            contentType: "application/json",
             success: function (res, stat) {
                 $('#displayLicence').empty();
                 datas = JSON.parse(res);

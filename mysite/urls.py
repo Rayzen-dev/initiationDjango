@@ -19,9 +19,8 @@ from django.urls import path,include
 from index import views
 
 urlpatterns = [
-#    path('', views.IndexView.as_view(), name='home'),
     path('', include('index.urls')),
-    path('polls/', include('polls.urls')),
+    path('quiz/', include('polls.urls')),
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
 ]

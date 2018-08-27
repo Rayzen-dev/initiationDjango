@@ -4,12 +4,12 @@ from .models import Question, Choice
 # Register your models here.
 class ChoiceInline(admin.TabularInline):
     model= Choice
-    extra = 1
+    extra = 2
 
 class QuestionAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,                  {'fields': ['question_text']}),
-        ('Information Date',    {'fields': ['pub_date'], 'classes': ['collapse']})
+        (None,                  {'fields': ['question_text', 'media_url']}),
+        ('Information Date',    {'fields': ['pub_date']})
     ]
     inlines = [ChoiceInline]
     list_display = ['question_text', 'pub_date', 'was_published_recently']

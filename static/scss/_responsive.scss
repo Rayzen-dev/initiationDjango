@@ -3,3 +3,25 @@
     margin: 0 15px 20px;
   }
 }
+
+@media all and (max-width: $sm_width * 1px) {
+  nav {
+  .toggleNav {
+    display: block;
+  }
+  ul {
+    border-top: 1px solid darken(#58c9b9, 40%);
+    display: none;
+    align-items: center;
+    background: #58c9b9;
+    li {
+      width: 100%;
+    }
+    &.active {
+      @include flex(no-wrap, column);
+      position: absolute;
+      width: 100%;
+    }
+  }
+}
+}

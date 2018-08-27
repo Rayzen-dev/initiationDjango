@@ -1,19 +1,33 @@
-{% extends '../layouts/base.html' %}
+{% extends '../layouts/quiz.html' %}
+{% load static %}
+
+{% block title %}
+Quiz
+{% endblock %}
 
 {% block content %}
-{% if last_question %}
-<ul>
-    {% for question in last_question %}
-    <li><a href="{% url 'polls:details' question.id %}">{{ question.question_text }}</a></li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No polls are available.</p>
-{% endif %}
-
-<div class="row">
-    <div class="col-6 col-xs-12">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis malesuada tellus quis luctus eleifend. Integer pulvinar faucibus varius. Nulla varius viverra risus. Mauris dictum ipsum sit amet varius cursus. Praesent a congue diam. Nam augue purus, iaculis eu mi nec, dignissim sagittis turpis. Ut id nibh quam. Integer justo urna, efficitur luctus eleifend ut, tincidunt ut dui. Duis ornare, nisl nec dapibus molestie, nisl mi commodo ipsum, in lacinia orci quam quis enim. Etiam placerat maximus auctor. Proin consectetur a augue at mattis. In a nisl nec leo vestibulum convallis. </p>
+<!--<div class="processAction">
+    <div>
+        Soumission de la question.<br />
+        Chargement...
     </div>
+</div>-->
+<div class="media" id="media"></div>
+
+<div class="question">
+    <p id="question"></p>
+        <ol id="response">
+        </ol>
+</div>
+
+<div class="askBar">
+    <form action="{% url 'polls:index' %}">
+        {% csrf_token %}
+        <div class="response" id="responseButton">
+
+        </div>
+
+        <input type="submit" value="Valider">
+    </form>
 </div>
 {% endblock %}

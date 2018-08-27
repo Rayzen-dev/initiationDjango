@@ -1,5 +1,7 @@
 {% extends '../layouts/base.html' %}
 
+
+
 {% block content %}
 <div class="bloc">
     {{ user }}
@@ -11,7 +13,7 @@
     {% endif%}
     <div class="row center-xs">
         <div class="col-10 col-sm-6">
-            <form method="post" action="{% url 'index:login' %}" class="form">
+            <form method="post" action="{% url 'index:login' %}{{ next }}" class="form">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="username">Nom d'utilisateur:</label>

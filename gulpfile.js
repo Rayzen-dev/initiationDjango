@@ -5,7 +5,7 @@ const gulp = require('gulp'),
 ;
 
 gulp.task('sass', () => {
-    return sass('static/scss/style.scss')
+    return sass('static/scss/*.scss')
         .on('error', sass.logError)
         .pipe(gulp.dest('static/css'))
 });
